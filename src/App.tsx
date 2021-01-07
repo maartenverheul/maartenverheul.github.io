@@ -1,24 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import './helpers.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="computer">
+      <div className="boot screen"></div>
+      <div className="desktop screen show">
+        <div className="app notepad focus" style={{left: 100, top: 100}}>
+          <div className="app-header">
+            <div className="app-icon">
+
+            </div>
+            <span className="app-title">*Untitled - Notepad</span>
+          </div>
+          <div className="app-content">
+            Maarten Verheul.
+            <br/>
+            <br/>
+            <a target="blank" href="https://www.linkedin.com/in/maarten-verheul/">LinkedIn</a>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

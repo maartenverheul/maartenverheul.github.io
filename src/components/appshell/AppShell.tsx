@@ -38,7 +38,7 @@ class AppShell extends React.Component<Props> {
   }
 
   private onPointerDown(e: React.PointerEvent<HTMLDivElement>){
-    if(!this.element.current) return;
+    if(!this.element.current || (e.target as HTMLDivElement).classList.contains("app-header-button")) return; //  If down on buttons, return.
     this.setState({
       isMoving: true,
       moveOffset: { x: e.clientX - this.element.current.offsetLeft, y: e.clientY - this.element.current.offsetTop },
@@ -91,13 +91,13 @@ class AppShell extends React.Component<Props> {
         {this.state.isMoving && <div className="app-mover" style={{left: this.state.moverLocation?.x, top: this.state.moverLocation?.y, width: AppShell.MOVERSIZE[0], height: AppShell.MOVERSIZE[1]}} onPointerMove={(e) => this.onPointerMove(e)} onPointerUp={() => this.onPointerUp()}></div>}
         <div className="app-header" onPointerDown={(e) => this.onPointerDown(e)}>
           
-            <div className="app-icon icon-notepad"></div>
-            <span className="app-title">{this.props.title}</span>
+          <div className="app-icon icon-notepad"></div>
+          <span className="app-title">{this.props.title}</span>
           
           <div className="right">
-            <button className="app-header-button red" onMouseDown={() => this.close()}>X</button>
-            <button className="app-header-button" onMouseDown={() => this.maximize()}>[]</button>
-            <button className="app-header-button" onMouseDown={() => this.minimize()}>-</button>
+            <button className="app-header-button red" onMouseUp={() => this.close()}>X</button>
+            <button className="app-header-button" onMouseUp={() => this.maximize()}>[]</button>
+            <button className="app-header-button" onMouseUp={() => this.minimize()}>-</button>
           </div>
         </div>
         <div className="app-content">

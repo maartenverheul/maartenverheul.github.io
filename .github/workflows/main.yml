@@ -26,15 +26,15 @@ jobs:
       - name: Build project
         run: npm run build
       - name: Publish project
-        run: npm run publish
+        run: npx copyfiles build/**/* docs -u 1
       - uses: EndBug/add-and-commit@v6 # You can change this to use a specific version
         with:
-          #add: 'src' # Default: '.'
+          add: 'docs' # Default: '.'
           # author_name: maartenverheul
           #author_email: maarten.verheul@student.hu.nl
-          #branch: some-branch
+          branch: master
           #cwd: './path/to/the/repo' # Default: '.'
-          message: 'Build ${GITHUB_REF}'
+          message: '[Automated] Build ${{ github.ref }}'
           #pull_strategy: '--no-rebase or --no-ff or --rebase'
           #push: true # Default true
           #remove: './dir/old_file.js'

@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.4
+        with:
+          # always-auth: # optional, default is false
+          node-version: 15.5.1
+          # architecture: # optional
+          # check-latest: # optional
+          # registry-url: # optional
+          # scope: # optional
+          # token: # optional, default is ${{ github.token }}
+      - name: Install node modules
+        run: npm install
+      - name: Build project
+        run: npm run build
+      - name: Publish project
+        run: npm run publish
+      - uses: EndBug/add-and-commit@v6 # You can change this to use a specific version
+        with:
+          #add: 'src' # Default: '.'
+          # author_name: maartenverheul
+          #author_email: maarten.verheul@student.hu.nl
+          #branch: some-branch
+          #cwd: './path/to/the/repo' # Default: '.'
+          message: 'Build ${GITHUB_REF}'
+          #pull_strategy: '--no-rebase or --no-ff or --rebase'
+          #push: true # Default true
+          #remove: './dir/old_file.js'
+          #signoff: false # Default false
+          #tag: 'v1.0.0 --force'
+
+          # The token to use to access the GitHub API when getting the author info (see the paragraph below for more info about the tokens used by the action)
+          # Default: secrets.GITHUB_TOKEN
+          token: ${{ secrets.GITHUB_TOKEN }}
+      

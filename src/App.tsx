@@ -1,6 +1,5 @@
 import React from 'react';
-import './App.css';
-import './helpers.css';
+import './App.scss';
 import Taskbar from './components/taskbar/Taskbar';
 
 function App() {

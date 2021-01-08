@@ -1,0 +1,45 @@
+.taskbar {
+	background-color: var(--taskbar-color);
+	height: 40px;
+	position: absolute;
+	bottom: 0;
+	width: 100vw;
+	>div {
+		display: inline-block;
+		>* {
+			display: inline-block;
+		}
+	}
+	>div.right {
+		float: right;
+		>* {
+			float: right;
+		}
+	}
+}
+.taskbar-button {
+	background-clip: border-box;
+	height: 100%;
+	padding: 0 4px;
+	&:hover {
+		background-color: rgba(255,255,255,0.1);
+		transition: background-color 200ms;
+	}
+}
+.taskbar-icon {
+	width: 16px;
+	height: 16px;
+	margin: 12px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+.icon-windows {
+	background-image: url('../../assets/taskbar/windows.png');
+}
+.icon-search {
+	background-image: url('../../assets/taskbar/search.png');
+}
+.icon-cortana {
+	background-image: url('../../assets/taskbar/cortana.png');
+}

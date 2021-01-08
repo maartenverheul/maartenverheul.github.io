@@ -1,5 +1,5 @@
 import React from 'react';
-import './Taskbar.css';
+import './Taskbar.scss';
 
 class Taskbar extends React.Component {
 

@@ -25,8 +25,16 @@ jobs:
         run: npm install
       - name: Build project
         run: npm run build
+      - name: Wait / Sleep
+        uses: jakejarvis/wait-action@v0.1.0
+        with:
+          time: '3s'
       - name: Publish project
-        run: npx copyfiles build/**/* docs -u 1
+        run: npx copyfiles build/**/* docs -u 1 --error
+      - name: Wait / Sleep
+        uses: jakejarvis/wait-action@v0.1.0
+        with:
+          time: '3s'
       - uses: EndBug/add-and-commit@v6 # You can change this to use a specific version
         with:
           add: 'docs' # Default: '.'
@@ -40,7 +48,7 @@ jobs:
           #remove: './dir/old_file.js'
           #signoff: false # Default false
           #tag: 'v1.0.0 --force'
-
+          
           # The token to use to access the GitHub API when getting the author info (see the paragraph below for more info about the tokens used by the action)
           # Default: secrets.GITHUB_TOKEN
           token: ${{ secrets.GITHUB_TOKEN }}

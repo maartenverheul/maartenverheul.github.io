@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import './helpers.css';
+import Taskbar from './components/taskbar/Taskbar';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <a target="blank" href="https://www.instagram.com/meerofmindermaarten/">Instagram</a>
           </div>
         </div>
+        <Taskbar />
       </div>
     </div>
   );

@@ -15,6 +15,7 @@ type State = {
   isMoving: boolean,
   moveOffset: {x: number, y: number}|null,
   moverLocation: {x: number, y: number}|null,
+  show: boolean
 }
 
 class AppShell extends React.Component<Props> {
@@ -27,6 +28,7 @@ class AppShell extends React.Component<Props> {
     isMoving: false,
     moveOffset: null,
     moverLocation: null,
+    show: true
   }
   private element: React.RefObject<HTMLDivElement>;
 
@@ -35,23 +37,22 @@ class AppShell extends React.Component<Props> {
     this.element = React.createRef<HTMLDivElement>();
   }
 
-  onPointerDown(e: React.PointerEvent<HTMLDivElement>){
+  private onPointerDown(e: React.PointerEvent<HTMLDivElement>){
     if(!this.element.current) return;
-    console.log(e.clientX, e.clientY);
     this.setState({
       isMoving: true,
       moveOffset: { x: e.clientX - this.element.current.offsetLeft, y: e.clientY - this.element.current.offsetTop },
       moverLocation: { x: e.clientX - this.element.current.offsetLeft - AppShell.MOVERSIZE[0]/2, y: e.clientY - this.element.current.offsetTop - AppShell.MOVERSIZE[0]/2 },
     });
   }
-  onPointerUp(){
+  private onPointerUp(){
     this.setState({
       isMoving: false,
       moveOffset: null,
       moverLocation: null
     });
   }
-  onPointerMove(e: React.PointerEvent<HTMLDivElement>){
+  private onPointerMove(e: React.PointerEvent<HTMLDivElement>){
     if(this.state.isMoving && this.state.moveOffset) 
     this.setState({
       position: { 
@@ -59,6 +60,15 @@ class AppShell extends React.Component<Props> {
         y: e.clientY - this.state.moveOffset.y
       }
     });
+  }
+  private close(){
+    this.destroy();
+  }
+  private minimize(){
+
+  }
+  private maximize(){
+    
   }
 
   public resize(width: number, height: number): void {
@@ -69,16 +79,26 @@ class AppShell extends React.Component<Props> {
     })
   }
   public destroy(): void {
-
+    this.setState({
+      show: false
+    })
   }
 
-  render() {
+  public render() {
+    if(!this.state.show) return <p></p>;
     return (
       <div className="app focus" style={{left: this.state.position.x, top: this.state.position.y, width: this.state.size.width, height: this.state.size.height}} ref={this.element}>
         {this.state.isMoving && <div className="app-mover" style={{left: this.state.moverLocation?.x, top: this.state.moverLocation?.y, width: AppShell.MOVERSIZE[0], height: AppShell.MOVERSIZE[1]}} onPointerMove={(e) => this.onPointerMove(e)} onPointerUp={() => this.onPointerUp()}></div>}
         <div className="app-header" onPointerDown={(e) => this.onPointerDown(e)}>
-          <div className="app-icon icon-notepad"></div>
-          <span className="app-title">{this.props.title}</span>
+          
+            <div className="app-icon icon-notepad"></div>
+            <span className="app-title">{this.props.title}</span>
+          
+          <div className="right">
+            <button className="app-header-button red" onMouseDown={() => this.close()}>X</button>
+            <button className="app-header-button" onMouseDown={() => this.maximize()}>[]</button>
+            <button className="app-header-button" onMouseDown={() => this.minimize()}>-</button>
+          </div>
         </div>
         <div className="app-content">
           {this.props.children}

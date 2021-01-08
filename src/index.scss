@@ -8,6 +8,7 @@
 	--app-border: #5C5A58;
 	--focus-header-color: #4C4A48;
 	--taskbar-color: #252424;
+	--close-button-color: #E81123;
 }
 
 body {
@@ -24,9 +25,8 @@ body {
   height: 100vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+button:focus {
+  outline: none;
 }
 
 @media only screen and (max-width: 800px) {

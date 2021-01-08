@@ -3,7 +3,8 @@
 	height: 40px;
 	position: absolute;
 	bottom: 0;
-	width: 100vw;
+  width: 100vw;
+  z-index: 50;
 	>div {
 		display: inline-block;
 		>* {

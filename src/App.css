@@ -60,7 +60,7 @@ body {
   background-size: contain;
   width: 16px;
   height: 16px;
-  margin-right: 2px;
+  margin-right: 5px;
 }
 
 .app .app-title {
@@ -81,4 +81,7 @@ body {
 }
 .notepad .app-icon {
   background-image: url(./assets/icons/notepad_dark.png);
+}
+.notepad .app-content {
+  padding: 0 2px;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.scss';
+import AppShell from './components/appshell/AppShell';
 import Taskbar from './components/taskbar/Taskbar';
 
 function App() {
@@ -7,19 +8,14 @@ function App() {
     <div className="computer">
       <div className="boot screen"></div>
       <div className="desktop screen show">
-        <div className="app notepad focus" style={{left: 100, top: 100}}>
-          <div className="app-header">
-            <div className="app-icon"></div>
-            <span className="app-title">Maarten Verheul.txt - Notepad</span>
-          </div>
-          <div className="app-content">
-            Welcome to the website of Maarten Verheul.
-            <br/>
-            <br/>
+        <AppShell title="Maarten Verheul.txt - Notepad" icon="icon" position={[100, 100]} size={[800, 600]}>
+          <div style={{marginLeft: 3, fontFamily: 'consolas'}}>
+            <p>Welcome to the website of Maarten Verheul.</p><br/>
             <a target="blank" href="https://www.linkedin.com/in/maarten-verheul/">LinkedIn</a> -&nbsp;
-            <a target="blank" href="https://www.instagram.com/meerofmindermaarten/">Instagram</a>
+            <a target="blank" href="https://www.instagram.com/meerofmindermaarten/">Instagram</a><br/>
+            <div className="img-coffee"></div>
           </div>
-        </div>
+        </AppShell>
         <Taskbar />
       </div>
     </div>

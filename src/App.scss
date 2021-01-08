@@ -19,57 +19,11 @@
   }
 }
 
-.app {
-	background-color: white;
-	position: absolute;
-	border: 1px solid var(--app-border);
-  box-shadow: 0 7px 15px -4px rgba(0,0,0,0.4);
-  
-	.app-header {
-		color: white;
-		padding: 6.5px;
-		font-family: sans-serif;
-		>* {
-			display: inline-block;
-			pointer-events: none;
-		}
-  }
-  
-	.app-icon {
-		background-size: contain;
-		width: 16px;
-		height: 16px;
-		margin-right: 5px;
-  }
-  
-	.app-title {
-		font-size: .75em;
-		vertical-align: text-top;
-		user-select: none;
-		font-weight: 100;
-		letter-spacing: .5px;
-	}
-}
-
-.app.focus {
-	.app-header {
-		background-color: var(--focus-header-color);
-		user-select: none;
-	}
-}
-
-/*
-**  Notepad
-*/
-
-.notepad {
-	width: 80%;
-	height: 80%;
-	.app-icon {
-		background-image: url(./assets/icons/notepad_x16.png);
-  }
-  
-	.app-content {
-		padding: 0 2px;
-	}
+.img-coffee {
+  background-image: url(./assets/img/coffee.png);
+  width: 428px;
+  height: 386px;
+  background-position: top left;
+  background-size: contain;
+  margin-top: 2rem;
 }

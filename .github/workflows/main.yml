@@ -10,7 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: PWD
+        run: pwd
+      - name: Copy readme
+        run: npx copyfiles README.md docs/README.md -u 1 --error
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.4
         with:
@@ -29,8 +32,13 @@ jobs:
         uses: jakejarvis/wait-action@v0.1.0
         with:
           time: '3s'
+      #- name: Publish project
+      #  run: npx copyfiles build/**/* docs -u 1 --error
       - name: Publish project
-        run: npx copyfiles build/**/* docs -u 1 --error
+        uses: canastro/copy-file-action@master
+        with:
+          source: "build/**/*"
+          target: "docs"
       - name: Wait / Sleep
         uses: jakejarvis/wait-action@v0.1.0
         with:

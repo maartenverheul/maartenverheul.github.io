@@ -4,6 +4,7 @@
 	border: 1px solid var(--app-border);
   box-shadow: 0 7px 15px -4px rgba(0,0,0,0.4);
   z-index: 10;
+  opacity: 1;
   
 	.app-header {
 		color: white;
@@ -63,6 +64,23 @@
     position: absolute;
     opacity: 0;
     z-index: 5;
+  }
+
+  &.app-state-minimized {
+    left: 0 !important;
+    top: 100vh !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0;
+  }
+  &.app-state-maximized {
+    left: 0 !important;
+    top: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+  }
+  &.app-state-destroyed {
+    opacity: 0 !important;
   }
 }
 

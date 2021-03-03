@@ -23,12 +23,14 @@
   .shortcut-icon {
     width: 39px;
     height: 39px;
-    background-image: url(../../assets/icons/notepad_x48.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     position: relative;
     margin: auto;
+
+    &.shortcut-icon-notepad   { background-image: url(../../assets/icons/notepad_x48.png); }
+    &.shortcut-icon-edge      { background-image: url(../../assets/icons/edge_x48.png); }
   }
   .shortcut-arrow {
     width: 13px;

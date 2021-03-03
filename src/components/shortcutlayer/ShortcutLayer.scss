@@ -1,0 +1,19 @@
+.shortcutlayer {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  padding: 5px 0;
+  grid-template-rows: repeat(4, 76px, );
+  grid-template-columns: repeat(4, 75px);
+  grid-gap: 2px;
+  position: relative;
+}
+
+.shortcutlayer-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}

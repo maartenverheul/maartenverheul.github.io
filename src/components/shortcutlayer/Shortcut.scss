@@ -1,0 +1,51 @@
+.shortcut {
+  height: fit-content;
+  max-height: 76px;
+  width: 77px;
+  border: 1px solid transparent;
+  position: relative;
+  z-index: 2;
+
+  &, *{
+    user-select: none;
+    pointer-events: painted;
+  }
+
+  &:hover {
+    background-color: rgba(173, 200, 255, 0.12);
+    border-color: rgba(173, 200, 255, 0.21);
+  }
+  &.selected {
+    background-color: rgba(173, 200, 255, 0.3);
+    border-color: rgba(173, 200, 255, 0.3);
+  }
+
+  .shortcut-icon {
+    width: 39px;
+    height: 39px;
+    background-image: url(../../assets/icons/notepad_x48.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    margin: auto;
+  }
+  .shortcut-arrow {
+    width: 13px;
+    height: 13px;
+    background-image: url(../../assets/desktop/shortcut.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  .shortcut-title {
+    color: white;
+    text-align: center;
+    user-select: none;
+    font-size: 0.8em;
+    text-shadow: 2px 2px 2px rgba(0,0,0,1);
+  }
+}

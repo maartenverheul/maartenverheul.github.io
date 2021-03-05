@@ -1,9 +1,10 @@
 import React from 'react';
-import Memory, {MemoryUpdate} from '../context/Memory';
-import { AppState } from '../types/AppState';
+import Memory from '../context/Memory';
 import './Boot.scss';
 
-type Props = {}
+type Props = {
+  onComplete?: () => void
+}
 
 class Boot extends React.Component<Props> {
   
@@ -16,7 +17,7 @@ class Boot extends React.Component<Props> {
 
   componentDidMount(){
     setTimeout(() => this.setState({width: "100%"}), this.timeout);
-    setTimeout(() => { MemoryUpdate.setAppState(AppState.DESKTOP); }, this.timeout + this.duration)
+    setTimeout(() => { if(this.props.onComplete) this.props.onComplete() }, this.timeout + this.duration)
   }
 
   render(){

@@ -18,6 +18,7 @@ class ShortcutLayer extends React.Component {
     shortcuts: [
       { position: [1, 1], title: "LinkedIn", icon: EdgeIcon, action: () =>  { this.openURL("https://www.linkedin.com/in/maarten-verheul/"); } },
       { position: [2, 1], title: "Instagram", icon: EdgeIcon, action: () => { this.openURL("https://www.instagram.com/meerofmindermaarten/"); } },
+      { position: [2, 3], title: "CV.txt", icon: NotepadIcon, action: () => { console.log("CV"); } },
     ]
   }
 

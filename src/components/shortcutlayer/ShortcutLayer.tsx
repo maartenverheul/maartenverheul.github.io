@@ -3,15 +3,7 @@ import Memory from '../../context/Memory';
 import Shortcut from './Shortcut';
 import './ShortcutLayer.scss';
 
-type State = {
-
-}
-
 class ShortcutLayer extends React.Component {
-
-  state: State = {
-
-  }
 
   deselectAll(e: React.MouseEvent<HTMLDivElement, MouseEvent>){
     Shortcut.deselectAll();

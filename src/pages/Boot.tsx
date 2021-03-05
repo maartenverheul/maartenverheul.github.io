@@ -24,7 +24,6 @@ class Boot extends React.Component<Props> {
       <Memory>
         {memory => 
           <div className="boot screen">
-            <p>{memory.appstate} </p>
             <div className="progress">
               <div className="inner" style={{width: this.state.width, transition: `width ${this.duration}ms linear`}}></div>
             </div>

@@ -1,14 +1,17 @@
 import React from "react";
 import { AppState } from "../types/AppState";
+import { Shortcut } from "../types/Shortcut";
 
 export type MemoryState = {
   appstate: AppState
-  stopcode: string|null
+  stopcode: string|null,
+  shortcuts: Shortcut[]
 }
 
 const MemoryContext = React.createContext<MemoryState>({
   appstate: AppState.BOOTING,
-  stopcode: null
+  stopcode: null,
+  shortcuts: []
 });
 
 const MemoryProvider = MemoryContext.Provider;

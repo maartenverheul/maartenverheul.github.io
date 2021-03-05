@@ -22,10 +22,15 @@ class App extends React.Component {
     window.location.reload();
   }
 
+  openContextMenu(e: React.MouseEvent<HTMLDivElement, MouseEvent>){
+    e.preventDefault();
+    return false;
+  }
+
   render(){
     return (
       <MemoryProvider value={this.state}>
-        <div className="computer">
+        <div className="computer" onContextMenu={(e) => this.openContextMenu(e)}>
           { this.state.appstate === AppState.BOOTING && <Boot/> }
           { this.state.appstate === AppState.DESKTOP && <Desktop/> }
           { this.state.appstate === AppState.BLUESCREEN && <Bluescreen onComplete={() => this.onBluescreenComplete()}/> }

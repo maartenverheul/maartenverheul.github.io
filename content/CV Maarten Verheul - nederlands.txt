@@ -1,0 +1,47 @@
+Curriculum Vitae
+
+PERSONALIA
+------------------------------------------------------------------------
+Naam.................Maarten Verheul
+Woonplaats...........Houten
+E-mailadres..........maartenverheul10@gmail.com
+Geboortedatum........04 september 2001
+Geslacht.............Man
+Nationaliteit........Nederlands
+
+
+OPLEIDINGEN
+-------------------------------------------------------------------------
+sep 2018 - jul 2022  
+    HBO-ICT (richting Software Development)
+    Hogeschool Utrecht, Utrecht
+
+    De talen Python, Java en C# geleerd, en een specialisatie in 
+    backend ontwikkeling.
+
+
+WERKERVARING
+------------------------------------------------------------------------
+mei 2019 - heden
+Infoplaza B.V, Houten
+Junior Developer
+
+februari 2021 - heden
+Blue Current B.V
+Stagair Front-end
+
+
+VAARDIGHEDEN
+------------------------------------------------------------------------
+JavaScript..........Zeer goed
+Vue/NuxtJS..........Zeer goed
+React...............Zeer goed
+Java................Redelijk
+Python..............Redelijk
+C# (ASP)............Redelijk
+
+
+TALEN
+-------------------------------------------------------------------------
+Nederlands
+Engels

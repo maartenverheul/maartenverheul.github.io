@@ -1,0 +1,43 @@
+.screen.bluescreen {
+  background-color: #0078D7;
+  color: white;
+  font-weight: lighter;
+  padding-top: 100px;
+  padding-left: 200px;
+
+  .content {
+
+    max-width: 950px;
+
+    .sadface p {
+      font-size: 12em;
+    }
+
+    .top {
+      font-size: 2.5em;
+      margin-bottom: 40px;
+
+      > * {
+        margin-bottom: 30px;
+      }
+    }
+
+    .bottom {
+      font-size: 1.05em;
+      > *{
+        display: inline-block;
+      }
+      .right {
+        vertical-align: top;
+        margin-left: 1rem;
+      }
+    }
+
+    .qr {
+      background-color: white;
+      width: 135px;
+      height: 135px;
+    }
+
+  }
+}

@@ -81,7 +81,7 @@ class AppShell extends React.Component<Props> {
     this.setState({ easeTime: 300, state: AppShellState.MINIMIZED });
   }
   private toggleMaximize(){
-    let newState = this.state.state == AppShellState.NORMAL ? AppShellState.MAXIMIZED : AppShellState.NORMAL;
+    let newState = this.state.state === AppShellState.NORMAL ? AppShellState.MAXIMIZED : AppShellState.NORMAL;
     this.setState({ easeTime: 80, state: newState });
   }
 

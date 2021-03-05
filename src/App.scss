@@ -3,27 +3,11 @@
 .computer {
 	width: 100vw;
   height: 100vh;
-  
+
   .screen {
     width: 100vw;
     height: 100vh;
-    display: none;
-
-    &.desktop {
-      background-color: black;
-      background-image: url(./assets/background.jpg);
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
   }
+
 }
 
-.img-coffee {
-  background-image: url(./assets/img/coffee.png);
-  width: 428px;
-  height: 386px;
-  background-position: top left;
-  background-size: contain;
-  margin-top: 2rem;
-}

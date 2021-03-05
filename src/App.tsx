@@ -1,28 +1,33 @@
 import React from 'react';
 import './App.scss';
-import AppShell from './components/appshell/AppShell';
-import ShortcutLayer from './components/shortcutlayer/ShortcutLayer';
-import Taskbar from './components/taskbar/Taskbar';
+import Bluescreen from './pages/Bluescreen';
+import Boot from './pages/Boot';
+import Desktop from './pages/Desktop';
+
+enum AppState {
+  BOOTING,
+  DESKTOP,
+  BLUESCREEN
+}
 
 class App extends React.Component {
   
+  state = {
+    appstate: AppState.BOOTING,
+    stopcode: "CRITICAL_PROCESS_DIED"
+  }
+
+  onBluescreenComplete(){
+    window.location.reload();
+  }
+
   render(){
     return (
       <div className="computer">
-        <div className="boot screen"></div>
-        <div className="desktop screen show">
-          <ShortcutLayer/>
-          <AppShell title="Maarten Verheul.txt - Notepad" icon="icon" position={[100, 100]} size={[800, 600]}>
-            <div style={{marginLeft: 3, fontFamily: 'consolas'}}>
-              <p>Welcome to the website of Maarten Verheul.<br/>
-              <a target="blank" href="https://www.linkedin.com/in/maarten-verheul/">LinkedIn</a> -&nbsp;
-              <a target="blank" href="https://www.instagram.com/meerofmindermaarten/">Instagram</a>
-              </p><br/>
-              <div className="img-coffee"></div>
-            </div>
-          </AppShell>
-          <Taskbar />
-        </div>
+        { this.state.appstate === AppState.BOOTING && <Boot onComplete={() => this.setState({appstate: AppState.DESKTOP})}/> }
+        { this.state.appstate === AppState.DESKTOP && <Desktop/> }
+        { this.state.appstate === AppState.BLUESCREEN && <Bluescreen onComplete={() => this.onBluescreenComplete()} stopcode={this.state.stopcode}/> }
+        {/* <Desktop /> */}
       </div>
     )
   }

@@ -1,9 +1,9 @@
 import React from 'react';
+import Memory, {MemoryUpdate} from '../context/Memory';
+import { AppState } from '../types/AppState';
 import './Boot.scss';
 
-type Props = {
-  onComplete?: () => void
-}
+type Props = {}
 
 class Boot extends React.Component<Props> {
   
@@ -16,16 +16,21 @@ class Boot extends React.Component<Props> {
 
   componentDidMount(){
     setTimeout(() => this.setState({width: "100%"}), this.timeout);
-    setTimeout(() => { if(this.props.onComplete) this.props.onComplete() }, this.timeout + this.duration)
+    setTimeout(() => { MemoryUpdate.setAppState(AppState.DESKTOP); }, this.timeout + this.duration)
   }
 
   render(){
     return (
-      <div className="boot screen">
-        <div className="progress">
-          <div className="inner" style={{width: this.state.width, transition: `width ${this.duration}ms linear`}}></div>
-        </div>
-      </div>
+      <Memory>
+        {memory => 
+          <div className="boot screen">
+            <p>{memory.appstate} </p>
+            <div className="progress">
+              <div className="inner" style={{width: this.state.width, transition: `width ${this.duration}ms linear`}}></div>
+            </div>
+          </div>
+        }
+      </Memory>
     )
   }
 }

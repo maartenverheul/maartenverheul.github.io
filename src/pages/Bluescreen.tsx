@@ -1,8 +1,8 @@
 import React from 'react';
+import Memory from '../context/Memory';
 import './Bluescreen.scss';
 
 type Props = {
-  stopcode?: string,
   onComplete?: () => void
 }
 
@@ -45,7 +45,9 @@ class Bluescreen extends React.Component<Props> {
             <div className="right">
               <p>For more information about this issue and possible fixes, visit https://www.windows.com/stopcode</p><br/><br/>
               <p>If you call a support person, give them this info:</p><br/>
-              <p>Stop code: <span>{this.props.stopcode||"UNKNOWN"}</span></p>
+              <Memory>
+                {value => <p>Stop code: <span>{value.stopcode||"UNKNOWN"}</span></p> }
+              </Memory>
             </div>
           </div>
         </div>

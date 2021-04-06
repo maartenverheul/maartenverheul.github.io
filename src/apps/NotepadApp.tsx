@@ -2,13 +2,14 @@ import React from "react";
 import AppShell from "../components/appshell/AppShell";
 // TODO move
 import Content from '../config/content.json';
+import App from "./App";
 
 type Props = {
   filename?: string
   content: string
 }
 
-export default class NotepadApp extends React.Component<Props> {
+export default class NotepadApp extends React.Component<Props> implements App {
 
   args: any = {}
 
@@ -23,6 +24,10 @@ export default class NotepadApp extends React.Component<Props> {
 
   componentDidMount(){
     this.getData();
+  }
+
+  async destroy() {
+
   }
 
   // TODO move

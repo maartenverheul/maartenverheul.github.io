@@ -12,6 +12,14 @@ class Process {
     public readonly application: typeof React.Component,
     public args?: any
   ){}
+
+  kill(stopCode: number) {
+    return this.destroy(stopCode);
+  }
+
+  destroy(stopCode: number = 0): void {
+    throw new Error("Process destroy not implemented yet!");
+  }
   
 }
 

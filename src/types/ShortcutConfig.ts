@@ -1,6 +1,6 @@
 import ShortcutIcon from "./ShortcutIcon";
 
-export type Shortcut = { 
+export type ShortcutConfig = { 
   position: [number, number], 
   title: string, 
   icon: ShortcutIcon, 

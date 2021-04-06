@@ -1,9 +1,12 @@
+import Process from "../types/Process";
 import { ShortcutConfig } from "../types/ShortcutConfig";
 
 interface PublicApi {
 
   run(command: string): void
-  createShortcut(config: ShortcutConfig): boolean
+  createShortcut(config: ShortcutConfig): boolean,
+
+  getProcesses(): Process[]
 
 }
 
@@ -18,6 +21,10 @@ export default class Win32Api implements PublicApi {
    */
   createShortcut(config: ShortcutConfig): boolean {
     throw new Error("Win32 createShortcut has not been not implemented yet!"); 
+  }
+
+  getProcesses(): Process[] {
+    throw new Error("Win32 getProcesses has not been not implemented yet!"); 
   }
 
 }

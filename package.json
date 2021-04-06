@@ -7,6 +7,7 @@
     "@babel/helper-builder-react-jsx": "^7.10.4",
     "@babel/helper-builder-react-jsx-experimental": "^7.12.11",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.2",
+    "@reduxjs/toolkit": "^1.5.1",
     "@svgr/webpack": "5.4.0",
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.53",
@@ -38,6 +39,7 @@
     "fs-extra": "^9.0.1",
     "html-webpack-plugin": "4.5.0",
     "identity-obj-proxy": "3.0.0",
+    "immutability-helper": "^3.1.1",
     "jest": "26.6.0",
     "jest-circus": "26.6.0",
     "jest-resolve": "26.6.0",
@@ -56,7 +58,9 @@
     "react-app-polyfill": "^2.0.0",
     "react-dev-utils": "^11.0.1",
     "react-dom": "^17.0.1",
+    "react-redux": "^7.2.3",
     "react-refresh": "^0.8.3",
+    "redux": "^4.0.5",
     "resolve": "1.18.1",
     "resolve-url-loader": "^3.1.2",
     "rimraf": "^3.0.2",
@@ -71,7 +75,8 @@
     "webpack": "4.44.2",
     "webpack-dev-server": "3.11.0",
     "webpack-manifest-plugin": "2.2.0",
-    "workbox-webpack-plugin": "5.1.4"
+    "workbox-webpack-plugin": "5.1.4",
+    "yargs": "^13.3.2"
   },
   "scripts": {
     "start": "node scripts/start.js",
@@ -96,6 +101,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-redux": "^7.1.16",
     "copyfiles": "^2.4.1"
   },
   "jest": {

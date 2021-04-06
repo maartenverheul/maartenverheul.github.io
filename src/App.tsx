@@ -21,8 +21,14 @@ class App extends React.Component {
     shortcuts: [
       { position: [1, 1], title: "LinkedIn", icon: EdgeIcon, action: () =>  { this.openURL("https://www.linkedin.com/in/maarten-verheul/"); } },
       { position: [2, 1], title: "Instagram", icon: EdgeIcon, action: () => { this.openURL("https://www.instagram.com/meerofmindermaarten/"); } },
-      { position: [2, 3], title: "CV.txt", icon: NotepadIcon, action: () => { console.log("CV"); } },
-      { position: [3, 4], title: "Maarten Verheul.txt", icon: NotepadIcon, action: () => { console.log("Notepad"); } },
+      { position: [2, 3], title: "CV.txt", icon: NotepadIcon, action: () => { 
+        // TODO change hacky method
+        (window as any).pm.run(`notepad "CV.txt"`)
+       } },
+      { position: [3, 4], title: "Maarten Verheul.txt", icon: NotepadIcon, action: () => { 
+        // TODO change hacky method
+        (window as any).pm.run(`notepad "Maarten Verheul.txt"`)
+       } },
     ]
  }
 

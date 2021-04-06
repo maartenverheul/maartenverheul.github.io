@@ -6,7 +6,7 @@ type State = {
   input: string
 }
 
-export default class CalculatorApp extends React.Component implements App {
+export default class TaskManagerApp extends React.Component implements App {
 
   args: any = {}
 

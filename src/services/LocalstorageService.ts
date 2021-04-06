@@ -1,24 +1,28 @@
+import { INITIAL_STATE } from "../store";
+
 class LocalstorageService {
 
-  private static readonly REPOWERTIMEOUT = 1000 * 60 * 24;
-
-  private boolToString(value: boolean): string {
-    return value ? "true" : "false";
+  private reset(){
+    this.saveState(INITIAL_STATE);
   }
 
-  getLastPoweredDate(): number {
-    let date = localStorage.getItem("lastPowered");
-    return parseInt(date||"0");
+  loadState(): any{
+    const dataString = localStorage.getItem("state");
+    if(dataString) {
+      try {
+        return JSON.parse(dataString);
+      }catch{
+        console.error("Local state was corrupted, resetting and starting clean.")
+      }
+    }else{
+      console.log("No saved state found, starting clean.");
+    }
+    this.reset();
+    return {};
   }
-  mustRepower(): boolean {
-    return Date.now() - this.getLastPoweredDate() > LocalstorageService.REPOWERTIMEOUT;
-  }
-  getPowered(): boolean { 
-    return localStorage.getItem("powered") === "true" && !this.mustRepower()
-  }
-  setPowered(value: boolean): void { 
-    localStorage.setItem("powered", this.boolToString(value));
-    if(value) localStorage.setItem("lastPowered", Date.now().toString());
+  saveState(data: any){
+    const dataString = JSON.stringify(data);
+    return localStorage.setItem("state", dataString);
   }
 
 }

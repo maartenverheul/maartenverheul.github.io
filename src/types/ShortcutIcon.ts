@@ -6,6 +6,14 @@ export default class ShortcutIcon {
     this.path = path;
   }
 
+  static from(name: string){
+    switch(name) {
+      case 'NotepadIcon': return NotepadIcon;
+      case 'EdgeIcon': return EdgeIcon;
+      default: return null;
+    }
+  }
+
 }
 
 export const NotepadIcon = new ShortcutIcon("notepad");

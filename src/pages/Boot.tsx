@@ -1,5 +1,4 @@
 import React from 'react';
-import Memory from '../context/Memory';
 import './Boot.scss';
 
 type Props = {
@@ -17,20 +16,16 @@ class Boot extends React.Component<Props> {
 
   componentDidMount(){
     setTimeout(() => this.setState({width: "100%"}), this.timeout);
-    setTimeout(() => { if(this.props.onComplete) this.props.onComplete() }, this.timeout + this.duration)
+    setTimeout(() => { this.props.onComplete?.() }, this.timeout + this.duration)
   }
 
   render(){
     return (
-      <Memory>
-        {memory => 
-          <div className="boot screen">
-            <div className="progress">
-              <div className="inner" style={{width: this.state.width, transition: `width ${this.duration}ms linear`}}></div>
-            </div>
-          </div>
-        }
-      </Memory>
+      <div className="boot screen">
+        <div className="progress">
+          <div className="inner" style={{width: this.state.width, transition: `width ${this.duration}ms linear`}}></div>
+        </div>
+      </div>
     )
   }
 }

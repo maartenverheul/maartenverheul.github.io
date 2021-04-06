@@ -1,19 +1,17 @@
 import React from 'react';
-import Memory from '../context/Memory';
 import './Bluescreen.scss';
+import { connect } from 'react-redux';
+import { RootState } from '../store';
 
 type Props = {
-  onComplete?: () => void
-}
-
-type State = {
-  percentage: number,
+  onComplete?: () => void,
+  stopcode?: string
 }
 
 class Bluescreen extends React.Component<Props> {
   
-  state: State = {
-    percentage: 0
+  state = {
+    percentage: 0,
   }
 
   componentDidMount(){
@@ -45,9 +43,7 @@ class Bluescreen extends React.Component<Props> {
             <div className="right">
               <p>For more information about this issue and possible fixes, visit https://www.windows.com/stopcode</p><br/><br/>
               <p>If you call a support person, give them this info:</p><br/>
-              <Memory>
-                {value => <p>Stop code: <span>{value.stopcode||"UNKNOWN"}</span></p> }
-              </Memory>
+              <p>Stop code: <span>{this.props.stopcode||"UNKNOWN"}</span></p>
             </div>
           </div>
         </div>
@@ -56,4 +52,8 @@ class Bluescreen extends React.Component<Props> {
   }
 }
 
-export default Bluescreen;
+const mapStateToProps = (state: RootState) => ({
+  stopcode: state.stopcode
+});
+
+export default connect(mapStateToProps)(Bluescreen);

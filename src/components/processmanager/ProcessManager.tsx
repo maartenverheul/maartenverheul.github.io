@@ -3,12 +3,19 @@ import Process, { ProcessConfig } from '../../types/Process';
 import update from 'immutability-helper';
 import yargs from 'yargs-parser';
 import NotepadApp from '../../apps/NotepadApp';
+import { AppDispatch, RootState } from '../../store';
+import { openURL } from '../../store/actions';
+import { connect} from 'react-redux';
 
+type Props = {
+  openURL: (url: string) => void
+}
 type State = {
   processes: Process[]
 }
 
-class ProcessManager extends React.Component {
+
+class ProcessManager extends React.Component<Props> {
 
   state: State = {
     processes: []
@@ -26,17 +33,16 @@ class ProcessManager extends React.Component {
     let parsed = yargs(command);
     parsed._ = parsed._.map(e => e.replace(/"|'/g, ""));
 
-    let component: any = null;
-
     switch(parsed._[0]){
       case "notepad":
-        component = NotepadApp
+        this.register({application: NotepadApp, args: parsed._ });
+        break;
+      case "open":
+        this.props.openURL(parsed._[1]);
         break;
       default:
         return false;
     }
-
-    this.register({application: component, args: parsed._ });
   }
 
   private register(config: ProcessConfig){
@@ -70,4 +76,12 @@ class ProcessManager extends React.Component {
   }
 }
 
-export default ProcessManager;
+const mapStateToProps = (state: RootState) => ({
+  appstate: state.appstate
+});
+
+const mapDispatchToProps = (dispatch: AppDispatch) => ({
+  openURL: (url: string) => dispatch(openURL(url))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProcessManager);

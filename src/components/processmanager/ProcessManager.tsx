@@ -6,6 +6,8 @@ import NotepadApp from '../../apps/NotepadApp';
 import { AppDispatch, RootState } from '../../store';
 import { openURL } from '../../store/actions';
 import { connect} from 'react-redux';
+import Win32API from '../../services/Win32API';
+import App from '../../apps/App';
 
 type Props = {
   openURL: (url: string) => void
@@ -33,19 +35,18 @@ class ProcessManager extends React.Component<Props> {
     let parsed = yargs(command);
     parsed._ = parsed._.map(e => e.replace(/"|'/g, ""));
 
-    switch(parsed._[0]){
-      case "notepad":
-        this.register({application: NotepadApp, args: parsed._ });
-        break;
-      case "open":
-        this.props.openURL(parsed._[1]);
-        break;
-      default:
-        return false;
+    const executable = Win32API.getApp(parsed._[0]);
+    if(!executable){
+      // TODO popup
+      console.log("That app does not exist!");
+      return false;
     }
+    let app = executable(...parsed._);
+    // app(parsed._[1]);
+    if(app) this.registerProcess({application: app, args: parsed._ });
   }
 
-  private register(config: ProcessConfig){
+  private registerProcess(config: ProcessConfig){
     const pid = this.getNewPid();
     const process = new Process(
       pid,

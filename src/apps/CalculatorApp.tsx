@@ -8,6 +8,8 @@ type State = {
 
 export default class CalculatorApp extends React.Component implements App {
 
+  public icon = "calc";
+
   args: any = {}
 
   constructor(props: any){

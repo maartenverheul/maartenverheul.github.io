@@ -29,8 +29,57 @@
     position: relative;
     margin: auto;
 
-    &.shortcut-icon-notepad   { background-image: url(../../assets/icons/notepad_x48.png); }
-    &.shortcut-icon-edge      { background-image: url(../../assets/icons/edge_x48.png); }
+    &.shortcut-icon-bat             { background-image: url(../../assets/icons/bat_x48.png); }
+    &.shortcut-icon-brave           { background-image: url(../../assets/icons/brave_x48.png); }
+    &.shortcut-icon-calc            { background-image: url(../../assets/icons/calc_x48.png); }
+    &.shortcut-icon-chrome          { background-image: url(../../assets/icons/chrome_x48.png); }
+    &.shortcut-icon-cmd             { background-image: url(../../assets/icons/cmd_x48.png); }
+    &.shortcut-icon-config          { background-image: url(../../assets/icons/config_x48.png); }
+    &.shortcut-icon-desktop         { background-image: url(../../assets/icons/desktop_x48.png); }
+    &.shortcut-icon-discord         { background-image: url(../../assets/icons/discord_x48.png); }
+    &.shortcut-icon-documents       { background-image: url(../../assets/icons/documents_x48.png); }
+    &.shortcut-icon-dxdiag          { background-image: url(../../assets/icons/dxdiag_x48.png); }
+    &.shortcut-icon-edge            { background-image: url(../../assets/icons/edge_x48.png); }
+    &.shortcut-icon-excel           { background-image: url(../../assets/icons/excel_x48.png); }
+    &.shortcut-icon-explorer        { background-image: url(../../assets/icons/explorer_x48.png); }
+    &.shortcut-icon-file            { background-image: url(../../assets/icons/file_x48.png); }
+    &.shortcut-icon-firefox         { background-image: url(../../assets/icons/firefox_x48.png); }
+    &.shortcut-icon-folder          { background-image: url(../../assets/icons/folder_x48.png); }
+    &.shortcut-icon-ie              { background-image: url(../../assets/icons/ie_x48.png); }
+    &.shortcut-icon-minecraft       { background-image: url(../../assets/icons/minecraft_x48.png); }
+    &.shortcut-icon-mmc             { background-image: url(../../assets/icons/mmc_x48.png); }
+    &.shortcut-icon-msagent         { background-image: url(../../assets/icons/msagent_x48.png); }
+    &.shortcut-icon-msinfo32        { background-image: url(../../assets/icons/msinfo32_x48.png); }
+    &.shortcut-icon-mspaint         { background-image: url(../../assets/icons/mspaint_x32.png); }
+    &.shortcut-icon-network         { background-image: url(../../assets/icons/network_x48.png); }
+    &.shortcut-icon-notepad         { background-image: url(../../assets/icons/notepad_x48.png); }
+    &.shortcut-icon-npp             { background-image: url(../../assets/icons/npp_x48.png); }
+    &.shortcut-icon-onedrive        { background-image: url(../../assets/icons/onedrive_x48.png); }
+    &.shortcut-icon-onenote         { background-image: url(../../assets/icons/onenote_x48.png); }
+    &.shortcut-icon-opera           { background-image: url(../../assets/icons/opera_x48.png); }
+    &.shortcut-icon-osk             { background-image: url(../../assets/icons/osk_x48.png); }
+    &.shortcut-icon-outlook         { background-image: url(../../assets/icons/outlook_x48.png); }
+    &.shortcut-icon-pc              { background-image: url(../../assets/icons/pc_x48.png); }
+    &.shortcut-icon-perfmon         { background-image: url(../../assets/icons/perfmon_x48.png); }
+    &.shortcut-icon-pictures        { background-image: url(../../assets/icons/pictures_x48.png); }
+    &.shortcut-icon-powerpoint      { background-image: url(../../assets/icons/powerpoint_x48.png); }
+    &.shortcut-icon-powershell_ise  { background-image: url(../../assets/icons/powershell_ise_x48.png); }
+    &.shortcut-icon-powershell      { background-image: url(../../assets/icons/powershell_x48.png); }
+    &.shortcut-icon-printer         { background-image: url(../../assets/icons/printer_x48.png); }
+    &.shortcut-icon-regedit         { background-image: url(../../assets/icons/regedit_x48.png); }
+    &.shortcut-icon-run             { background-image: url(../../assets/icons/run_x48.png); }
+    &.shortcut-icon-skype           { background-image: url(../../assets/icons/skype_x48.png); }
+    &.shortcut-icon-steam           { background-image: url(../../assets/icons/steam_x48.png); }
+    &.shortcut-icon-taskmgr         { background-image: url(../../assets/icons/taskmgr_x48.png); }
+    &.shortcut-icon-trash_empty     { background-image: url(../../assets/icons/trash_empty_x48.png); }
+    &.shortcut-icon-trash_full      { background-image: url(../../assets/icons/trash_full_x48.png); }
+    &.shortcut-icon-videos          { background-image: url(../../assets/icons/videos_x48.png); }
+    &.shortcut-icon-vlc             { background-image: url(../../assets/icons/vlc_x48.png); }
+    &.shortcut-icon-win10upgrade    { background-image: url(../../assets/icons/win10upgrade_x48.png); }
+    &.shortcut-icon-wmplayer        { background-image: url(../../assets/icons/wmplayer_x48.png); }
+    &.shortcut-icon-word            { background-image: url(../../assets/icons/word_x48.png); }
+    &.shortcut-icon-xwizard         { background-image: url(../../assets/icons/xwizard_x48.png); }
+    &.shortcut-icon-zip             { background-image: url(../../assets/icons/zip_x48.png); }
   }
   .shortcut-arrow {
     width: 13px;

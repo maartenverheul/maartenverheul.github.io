@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Win32API from '../../services/Win32API';
 import { AppDispatch, RootState } from '../../store';
 import { ShortcutConfig } from '../../types/ShortcutConfig';
 import Shortcut from './Shortcut';
-import ShortcutIcon from '../../types/ShortcutIcon'
 import './ShortcutLayer.scss';
 
 type Props = {
@@ -21,7 +21,7 @@ class ShortcutLayer extends React.Component<Props> {
   }
 
   renderShortcuts() { 
-    return this.props.shortcuts.map((e,i) => <Shortcut key={i} position={e.position} title={e.title} selected={false} icon={ShortcutIcon.from(e.icon)} action={() => this.onShortcutAction(e.target)}/>)
+    return this.props.shortcuts.map((e,i) => <Shortcut key={i} position={e.position} title={e.title} selected={false} icon={Win32API.getIcon(e.target)} action={() => this.onShortcutAction(e.target)}/>)
   }
 
   render(){

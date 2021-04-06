@@ -7,11 +7,19 @@ import { AppState } from './types/AppState';
 import { AppDispatch, RootState } from './store';
 import { connect } from 'react-redux';
 import { setBootstate } from './store/actions';
+import Win32API from './services/Win32API';
+import NotepadApp from './apps/NotepadApp';
 
 type Props = {
   appstate: number,
   bootComplete: () => void
 }
+
+Win32API.registerApp("notepad", () => NotepadApp);
+Win32API.registerApp("open", (...args) => {
+  Win32API.openURL(args[1]);
+  return null;
+});
 
 class App extends React.Component<Props> {
   

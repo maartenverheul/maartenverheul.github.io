@@ -8,6 +8,8 @@ type State = {
 
 export default class TaskManagerApp extends React.Component implements App {
 
+  public icon = "taskmgr";
+
   args: any = {}
 
   constructor(props: any){

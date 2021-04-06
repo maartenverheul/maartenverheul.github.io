@@ -1,10 +1,9 @@
 import React from 'react';
-import ShortcutIcon from '../../types/ShortcutIcon';
 import './Shortcut.scss';
 
 type Props = {
   position: [number, number],
-  icon: ShortcutIcon|null,
+  icon: string|null,
   title: string,
   selected: boolean
   action: () => void
@@ -33,7 +32,7 @@ class Shortcut extends React.Component<Props> {
   render(){
     return (
       <div className={"shortcut" + (this.props.selected?" selected":"")} style={{gridColumn: this.state.position.x, gridRow: this.state.position.y}} onPointerUp={() => this.select()} onDoubleClick={() => this.props.action()}>
-        <div className={`shortcut-icon shortcut-icon-${this.props.icon?.path || 'unknown' }`}>
+        <div className={`shortcut-icon shortcut-icon-${this.props.icon || 'unknown' }`}>
           <div className="shortcut-arrow"></div>
         </div>
         <div className="shortcut-title">{this.props.title}</div>

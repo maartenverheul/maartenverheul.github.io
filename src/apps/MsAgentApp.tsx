@@ -6,6 +6,8 @@ type State = {}
 
 export default class MsAgentApp extends React.Component implements App {
 
+  public icon = "msagent";
+
   args: any = {}
 
   constructor(props: any){

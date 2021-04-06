@@ -11,6 +11,8 @@ type Props = {
 
 export default class NotepadApp extends React.Component<Props> implements App {
 
+  public icon = "bat";
+
   args: any = {}
 
   constructor(props: any){
